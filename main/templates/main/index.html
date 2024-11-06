@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block title %} Home {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<marquee behavior="scroll" direction="left"><h1>Welcome to: </h1></marquee>
+
+<center><img src="{% static 'images/logo.png' %}" width="30%"></center>
+
+    <center method="post" class="from-group">
+        {% csrf_token %}
+        {{form|crispy}}
+        <center<p>Don't have an account? Register
+        <a href="/registration.html"> As Advisor</a> <a href="/registration.html"> As Student</a></p></center>
+<center><button type="submit" class="btn btn-success" style="background-color:black"><a href="educator/sign-in/">Advisor Login</a></button>
+
+<button type="submit" class="btn btn-success" style="background-color:black"><a href="educator/sign-in/">Student Login</a></button></center>
+    </form>
+
+
+
+
+{% endblock %}
+#login signup

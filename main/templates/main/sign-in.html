@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block title %} Home {% endblock %}
+
+
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Sign In</button>
+
+    </form>

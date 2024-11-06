@@ -1,0 +1,13 @@
+{% extends 'main/educator_dash.html' %}
+
+{% block content %}
+
+    <h2>Upload Project</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="document">
+        <button type="submit">Upload File</button>
+    </form>
+
+
+{% endblock %}

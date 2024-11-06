@@ -1,0 +1,42 @@
+{% extends 'main/educator_dash.html' %}
+
+
+{% block content %}
+   <h2>Assignments</h2>
+    <p>
+        <a href="{% url 'upload_assignment' %}" class="btn btn-primary">
+            Upload Assignment
+        </a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Advisor</th>
+                <th>Download</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for assignment in assignments %}
+                <tr>
+                    <td>{{ assignment.title }}</td>
+                    <td>{{ assignment.advisor }}</td>
+                    <td>
+                        <a href="{{ assignments.pdfs.url }}" class="btn btn-primary btn-sm">Download PDF
+                        </a>
+                    </td>
+                    <td>
+                        <form method="post" action="{% url 'delete_assignment' assignment.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+{% endblock %}
+

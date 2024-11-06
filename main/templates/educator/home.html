@@ -1,0 +1,10 @@
+{% extends 'main/educator_dash.html' %}
+{% load static %}
+
+{% block content %}
+<center><h1>Educator / Advisor page</h1></center>
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.get_username }}</p>
+{% endif %}
+<center><img src="{% static 'images/logo.png' %}" width="30%"></center>
+{% endblock %}
